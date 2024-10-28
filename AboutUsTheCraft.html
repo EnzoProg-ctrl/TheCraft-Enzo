@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url("brushedWhite.jpg");
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .header h1 {
+            font-family: "Anonymous Pro", monospace;
+            font-weight: 400;
+            font-style: normal;
+            margin: 0;
+            font-size: 36px; /* Increased font size */
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px; /* Increased font size */
+            transition: all 0.3s ease 0s;
+        }
+        .nav-links a:hover {
+            color: darkgray;
+        }
+        .search {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .search input {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+            box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
+            font-size: 16px; /* Increased font size */
+        }
+        .content {
+            display: flex;
+            gap: 40px;
+            margin-top: 100px;
+            align-items: center;
+            padding-left: 150px;
+            position: relative;
+        }
+
+        .content p{
+            padding-right: 0px;
+            position: relative;
+        }
+
+        .img-container {
+            position: relative;
+            border-radius: 8px;
+            overflow: visible;
+            transition: 1s box-shadow;
+        }
+
+        .img-container img {
+            width: 300px;
+            height: auto;
+            display: block;
+        }
+
+        .img-container:hover {
+            box-shadow: 0 5px 20px rgb(246, 249, 60);
+        }
+
+        .img-container:hover::before, .img-container:hover::after {
+            content: '';
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            z-index: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: overlay;
+        }
+
+        .img-container:hover::before {
+            background: #06e336;
+            animation: clockwise 1s infinite linear;
+            z-index: 1;
+        }
+
+        .img-container:hover::after {
+            background: #020ae9;
+            animation: counterclockwise 2s infinite linear;
+            z-index: 2;
+        }
+
+        @keyframes clockwise {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes counterclockwise {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(-360deg);
+            }
+        }
+
+
+        .content p {
+            font-size: 20px; /* Increased font size */
+            line-height: 1.6;
+            color: #333;
+            padding-right: 200px;
+        }
+        .footer {
+            margin-top: 190px;
+            padding-top: 40px;
+            border-top: 1px solid #ccc;
+            text-align: center;
+            position: relative;
+        }
+        .footer h2 {
+            font-size: 20px; /* Increased font size */
+            margin-bottom: 20px;
+        }
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .socials a {
+            color: black;
+            font-size: 24px;
+            text-decoration: none;
+        }
+        .socials svg {
+            width: 24px;
+            height: 24px;
+        }
+        .user-icon {
+            color: black;
+        }
+
+        /* Mobile View (768px and below) */
+        @media (max-width: 1300px) {
+        .header {
+            flex-direction: column;
+                text-align: center;
+        }
+        .header h1 {
+            font-size: 30px;
+        }
+        .nav-links {
+            justify-content: center;
+            gap: 10px;
+            }
+
+
+        .burger-menu {
+            display: block;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            text-align: left;
+            padding: 10px;
+            max-height: 0; /* Initially hidden */
+            overflow: hidden; /* Hide the overflowing content */
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0;
+        }
+
+        .nav-links a {
+            padding: 10px;
+            font-size: 18px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .nav-active { 
+            max-height: 300px;
+            opacity: 1;
+        }
+            .content {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 50px;
+                padding-left: 0;
+                text-align: center;
+            }
+            .content img {  
+                padding-left: 45px;
+                padding-right: 0;
+                width: 80%;
+                height: auto;
+            }
+            .content p {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            .footer {
+                margin-top: 100px;
+            }
+            .burger-menu {
+            display:  block !important;
+        }
+    }
+
+    .burger-menu {
+    display: none;
+}
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            .nav-links a {
+                font-size: 16px;
+            }
+            .burger-menu {
+            display: block;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            text-align: left;
+            padding: 10px;
+            max-height: 0; /* Initially hidden */
+            overflow: hidden; /* Hide the overflowing content */
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0;
+        }
+
+        .nav-links a {
+            padding: 10px;
+            font-size: 18px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .nav-active {
+            max-height: 300px; /* Adjust based on the content height */
+            opacity: 1;
+        }
+            .search input {
+                width: 150px;
+            }
+            .content p {
+                font-size: 18px; 
+            }
+            .footer h2 {
+                font-size: 16px;
+            }
+            .socials a {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>About Us</h1>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="PomadeProducts.html">Products</a>
+                <a href="AboutUsTheCraft.html">About us</a>
+            </nav>
+            <div class="search">
+                <div class="burger-menu" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                  </div>
+                <input placeholder="Search here" type="text"/>
+                <a href="CreateUserAccount.html">
+                    <a href="CreateUserAccount.html"><i class="fa-regular fa-user user-icon"></i></a>
+                </a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="img-container">
+                <img alt="MyPhoto" src="myphotograyjacket.jpg"/>
+            </div>
+            <p>
+                Here at The Craft, we believe that great style starts with the right foundation. Our pomades are expertly crafted to give you the perfect hold, texture, and shine—without compromising on quality. Founded by Enzo, we are committed to delivering grooming products that are as unique as the individuals who use them. Inspired by the art of hair styling, we blend tradition with innovation to bring you premium formulas that enhance your look and confidence. At The Craft, every detail matters, because your style is our craft.
+            </p>
+        </div>
+        <div class="footer">
+            <h2>Social Medias</h2>
+            <div class="socials">
+                <a href="https://www.facebook.com/enzo.centeno.5"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/nzocenteno.s/"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+        <p style="margin-top: 20px; font-size: 14px; color: gray;">&copy; 2024 All rights reserved</p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-links');
+            nav.classList.toggle('nav-active');
+        }
+    </script>
+</body>
+</html>

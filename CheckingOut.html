@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Check out</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url("brushedWhite.jpg");
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-family: "Anonymous Pro", monospace;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .search {
+            margin-left: auto;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .products {
+            flex: 1 1 65%;
+        }
+
+        .product {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .cart-summary {
+            flex: 1 1 30%;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-summary h2, .cart-summary h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .cart-summary p {
+            margin: 5px 0;
+        }
+
+        .user-icon {
+            color: black;
+        }
+
+        .nav-links a {
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: darkgray;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .user-icon{
+                padding-top: 8px;
+                padding-left: 10px;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
+
+            .search {
+                margin-left: 0;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            main {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .products, .cart-summary {
+                width: 100%;
+            }
+
+            .burger-menu {
+                display: block;
+                font-size: 24px;
+                cursor: pointer;
+                padding-top:3px;
+                padding-right: 10px;
+            }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            text-align: left;
+            padding: 10px;
+            max-height: 0; /* Initially hidden */
+            overflow: hidden; /* Hide the overflowing content */
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0;
+        }
+
+        .nav-links a {
+            padding: 10px;
+            font-size: 18px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .nav-active {
+            max-height: 300px; /* Adjust based on the content height */
+            opacity: 1;
+        }
+
+            .burger-menu {
+                display:  block !important;
+            }
+        }
+
+        .burger-menu {
+    display: none;
+}
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            .search input[type="text"] {
+                width: 80%;
+            }
+
+            .user-icon{
+                position: absolute;
+            }
+
+            .cart-summary p, .cart-summary h2, .cart-summary h3 {
+                font-size: 14px;
+            }
+
+            .burger-menu {
+                display: block;
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                text-align: left;
+                padding: 10px;
+                max-height: 0; /* Initially hidden */
+                overflow: hidden; /* Hide the overflowing content */
+                transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                opacity: 0;
+            }
+
+            .nav-links a {
+                padding: 10px;
+                font-size: 18px;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .nav-active {
+                max-height: 300px; /* Adjust based on the content height */
+                opacity: 1;
+            }
+
+                .burger-menu {
+                    display:  block !important;
+                }
+            }
+
+            .burger-menu {
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CheckOut</h1>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="PomadeProducts.html">Products</a>
+            <a href="AboutUsTheCraft.html">About us</a>
+        </nav>
+        <div class="search">
+            <div class="burger-menu" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+              </div>
+            <input type="text" placeholder="Search here">
+            <a href="CreateUserAccount.html">
+                <i class="fa-regular fa-user user-icon"></i>
+            </a>
+        </div>
+    </header>
+    
+    <main>
+        <section class="products">
+            <!-- Products list will be generated from localStorage -->
+        </section>
+
+        <aside class="cart-summary">
+            <h2>Cart Summary</h2>
+            <div id="cart-details"></div>
+            <hr>
+            <p id="vat"></p>
+            <p id="total"></p>
+            <p id="sub-total"></p>
+            <h3>The Craft</h3>
+        </aside>
+    </main>
+
+    <script>
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const productsSection = document.querySelector('.products');
+        const cartDetails = document.getElementById('cart-details');
+        let total = 0;
+
+        // Populate products
+        cart.forEach(product => {
+            const productElement = document.createElement('div');
+            productElement.classList.add('product');
+            productElement.innerHTML = `
+                <div class="product-image">${product.name}</div>
+                <p>${product.quantity}x</p>
+                <p>Php ${product.price}</p>
+            `;
+            productsSection.appendChild(productElement);
+
+            total += product.price * product.quantity;
+        });
+
+        // Calculate VAT (12%)
+        const vat = total * 0.12;
+        const subTotal = total + vat;
+
+        // Display totals
+        cartDetails.innerHTML = cart.map(product => `${product.name}: ${product.quantity}x Php ${product.price}`).join('<br>');
+        document.getElementById('vat').textContent = `VAT: Php ${vat.toFixed(2)}`;
+        document.getElementById('total').textContent = `Total: Php ${total}`;
+        document.getElementById('sub-total').textContent = `SubTotal: Php ${subTotal.toFixed(2)}`;
+
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-links');
+            nav.classList.toggle('nav-active');
+        }
+    </script>
+</body>
+</html>

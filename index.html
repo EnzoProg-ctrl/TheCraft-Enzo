@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Craft</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="homepageStyle.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ </head>
+ <body>
+    <header>
+        <h1>The Craft</h1>
+            <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="PomadeProducts.html">Products</a>
+            <a href="AboutUsTheCraft.html">About us</a>
+            </nav>
+            <div class="search-container">
+                <div class="burger-menu" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            <input id="search-input" placeholder="Search here" type="text" />
+            <a href="CreateUserAccount.html">
+                <a href="CreateUserAccount.html"><i class="fa-regular fa-user user-icon"></i></a>
+            </a>
+     </div>
+    </header>
+    <section class="blackpart">
+     <div class="quote-text">
+      <h2>Craft your style, define your edge—because every great look starts with the perfect hold</h2>
+     </div>
+     <div class="pomades-image">
+      <img alt="Various pomades" src="varPomadesFinal.jpg"/>
+     </div>
+    </section>
+    <section class="content">
+     <div class="content-box">
+      <h3>Oil Based?</h3>
+      <p>Provides a strong hold and high shine, ideal for classic, sleek hairstyles. It is long-lasting and water-resistant, but may require multiple washes to remove.</p>
+     </div>
+     <div class="content-box">
+      <h3>Water Based?</h3>
+      <p>Provides a strong hold and high shine, ideal for classic, sleek hairstyles. It is long-lasting and water-resistant, but may require multiple washes to remove.</p>
+     </div>
+    </section>
+
+    <script>
+       function searchProducts() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            if (input === "pomade" || input === "pomades" || input === "Pomades") {
+                window.location.href = 'PomadeProducts.html';
+            } else {
+                alert('No results found for your search.');
+            }
+        }
+
+        // Add event listener for the Enter key
+        document.getElementById('search-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchProducts();
+            }
+        });
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-links');
+            nav.classList.toggle('nav-active');
+        }
+    </script>
+   </body>
+</html>
